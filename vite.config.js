@@ -9,6 +9,9 @@ export default defineConfig({
         }),
         vue({
             template: {
+                compilerOptions: {
+                    isCustomElement: tag => tag.startsWith('smart-')
+                },
                 transformAssetUrls: {
                     // The Vue plugin will re-write asset URLs, when referenced
                     // in Single File Components, to point to the Laravel web

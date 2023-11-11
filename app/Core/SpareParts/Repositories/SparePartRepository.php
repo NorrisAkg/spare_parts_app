@@ -12,12 +12,11 @@ class SparePartRepository implements SparePartRepositoryInterface
 {
     public function __construct(protected SparePart $model)
     {
-
     }
 
-public function list(array $params, int $page = 1, int $limit = 10, string $sortBy = 'designation', string $sortOrder = "asc"): LengthAwarePaginator
+    public function list(array $params, int $page = 1, int $limit = 10, string $sortBy = 'designation', string $sortOrder = "asc"): LengthAwarePaginator
     {
-        $query = $this->model->newQuery();
+        $query = $this->model->with['pictures']->newQuery();
 
         if (array_key_exists("reference", $params)) {
             $query = $query->where("", $params["reference"]);
@@ -27,7 +26,7 @@ public function list(array $params, int $page = 1, int $limit = 10, string $sort
             $query = $query->where("designation", 'like', '%' . $params["name"] . '%');
         }
 
-        return $query->orderBy($sortBy,$sortOrder)->paginate(page: $page, perPage: $limit);
+        return $query->orderBy($sortBy, $sortOrder)->paginate(page: $page, perPage: $limit);
     }
 
     public function store(array $body): SparePart
@@ -38,7 +37,7 @@ public function list(array $params, int $page = 1, int $limit = 10, string $sort
         return $sparePart;
     }
 
-    public function findById(int $id): SparePart
+    public function findById(string $id): SparePart
     {
         try {
             return $this->model->find($id);

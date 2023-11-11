@@ -15,6 +15,8 @@ class SparePart extends Model {
         'description',
     ];
 
+    const MAX_PICTURES = 5;
+
     public function category(): BelongsTo {
         return $this->belongsTo(Category::class);
     }

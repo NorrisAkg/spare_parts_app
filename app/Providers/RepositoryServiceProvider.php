@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Core\Pictures\Repositories\Interfaces\PictureRepositoryInterface;
+use App\Core\Pictures\Repositories\PictureRepository;
 use App\Core\SpareParts\Repositories\Interfaces\SparePartRepositoryInterface;
 use App\Core\SpareParts\Repositories\SparePartRepository;
 use Illuminate\Support\ServiceProvider;
@@ -14,6 +16,7 @@ class RepositoryServiceProvider extends ServiceProvider
     protected $models =
     [
         [SparePartRepositoryInterface::class, SparePartRepository::class],
+        [PictureRepositoryInterface::class, PictureRepository::class],
     ];
 
     /**

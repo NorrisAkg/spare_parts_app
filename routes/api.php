@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\SparePartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post("/auth/login", [AuthController::class, "login"]);
+
+Route::controller(SparePartController::class)->prefix('spare-parts')->group(function () {
+    Route::get('', 'list');
+
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::post('', 'create');
+        Route::put('{id}', 'update');
+        Route::put('{id}/set-featured', 'setAsFeatured');
+        Route::delete('{id}', 'delete');
+    });
+
+    Route::get('{id}', 'show');
 });

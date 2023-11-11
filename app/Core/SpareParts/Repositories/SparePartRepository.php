@@ -2,6 +2,7 @@
 
 namespace App\Core\SpareParts\Repositories;
 
+use App\Core\Categories\Category;
 use App\Core\SpareParts\SparePart;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -29,9 +30,10 @@ class SparePartRepository implements SparePartRepositoryInterface
         return $query->orderBy($sortBy, $sortOrder)->paginate(page: $page, perPage: $limit);
     }
 
-    public function store(array $body): SparePart
+public function store(array $body, Category $category): SparePart
     {
         $sparePart = $this->model->make($body);
+        $sparePart->category_id = $category->id;
         $sparePart->save();
 
         return $sparePart;

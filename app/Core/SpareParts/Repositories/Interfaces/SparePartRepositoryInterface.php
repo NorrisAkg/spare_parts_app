@@ -2,6 +2,7 @@
 
 namespace App\Core\SpareParts\Repositories\Interfaces;
 
+use App\Core\Categories\Category;
 use App\Core\SpareParts\SparePart;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
@@ -32,7 +33,7 @@ interface SparePartRepositoryInterface
      * @return SparePart
      */
 
-    public function store(array $body): SparePart;
+    public function store(array $body, Category $category): SparePart;
     /**
      * Find one spare part by given id
      *

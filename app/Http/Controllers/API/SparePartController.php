@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Core\Categories\Category;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -49,12 +50,13 @@ class SparePartController extends ApiBaseController
     public function create(AddSparePartRequest $request): JsonResponse
     {
         $data = $request->validated();
+        $category = Category::find($request->input("category_id"));
 
         DB::beginTransaction();
         // Try to create new spare part with pictures
         try {
             // Create spare part
-            $sparePart = $this->sparePartRepository->store(body: $data);
+            $sparePart = $this->sparePartRepository->store(body: $data, category: $category);
 
             // Associate pictures to spare part
             $this->addPictures(sparePart: $sparePart, pictures: $data['pictures']);

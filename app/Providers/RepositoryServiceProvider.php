@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
-use App\Core\Pictures\Repositories\Interfaces\PictureRepositoryInterface;
-use App\Core\Pictures\Repositories\PictureRepository;
-use App\Core\SpareParts\Repositories\Interfaces\SparePartRepositoryInterface;
-use App\Core\SpareParts\Repositories\SparePartRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Core\Users\Repositories\UserRepository;
+use App\Core\Pictures\Repositories\PictureRepository;
+use App\Core\SpareParts\Repositories\SparePartRepository;
+use App\Core\Users\Repositories\Interfaces\UserRepositoryInterface;
+use App\Core\Pictures\Repositories\Interfaces\PictureRepositoryInterface;
+use App\Core\SpareParts\Repositories\Interfaces\SparePartRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,7 @@ class RepositoryServiceProvider extends ServiceProvider
     [
         [SparePartRepositoryInterface::class, SparePartRepository::class],
         [PictureRepositoryInterface::class, PictureRepository::class],
+        [UserRepositoryInterface::class, UserRepository::class],
     ];
 
     /**

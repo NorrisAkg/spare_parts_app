@@ -17,10 +17,10 @@ class SparePartRepository implements SparePartRepositoryInterface
 
     public function list(array $params, int $page = 1, int $limit = 10, string $sortBy = 'designation', string $sortOrder = "asc"): LengthAwarePaginator
     {
-        $query = $this->model->with['pictures']->newQuery();
+        $query = $this->model->with(['pictures'])->newQuery();
 
         if (array_key_exists("reference", $params)) {
-            $query = $query->where("", $params["reference"]);
+            $query = $query->where("reference", "=", $params["reference"]);
         }
 
         if (array_key_exists("name", $params)) {

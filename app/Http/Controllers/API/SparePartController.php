@@ -23,10 +23,10 @@ class SparePartController extends ApiBaseController
     ) {
     }
 
-    public function index(Request $request): JsonResponse
+    public function list(Request $request): JsonResponse
     {
         $spareParts = $this->sparePartRepository->list(
-            params: $request->only(["name"]),
+            params: $request->only(["name", "reference"]),
             page: $request->input("page", 1),
             limit: $request->input("per_page", 10),
             sortBy: $request->input("order_by", "created_at"),

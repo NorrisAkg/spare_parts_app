@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Index from "./../views/pages/index.vue";
 // import LoginPage from "../views/pages/Login/Login.vue";
-// import Spares from "../views/pages/spares/index.vue";
+import SparesList from "../views/pages/spares-list.vue";
 
 const routes = [
     {
@@ -10,11 +10,11 @@ const routes = [
         name: "index",
         component: Index,
     },
-    // {
-    //     path: "/spares",
-    //     name: "spares",
-    //     component: Events,
-    // },
+    {
+        path: "/all-spares",
+        name: "spares",
+        component: SparesList,
+    },
     // {
     //     path: '/login',
     //     name: 'Login',

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spare parts</title>
     @vite('resources/css/app.css')
+    @vite('resources/js/assets/css/styles.css')
 </head>
 
 <body>

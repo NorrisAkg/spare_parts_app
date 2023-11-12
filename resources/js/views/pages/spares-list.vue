@@ -12,6 +12,15 @@ const router = useRouter();
 
         <section class="featured_section">
             <h2>Un aperçu de nos pièces</h2>
+            <div class="filter">
+                <input class="input" placeholder="Welcome!" />
+                <input class="input" placeholder="Welcome!" />
+                <select class="select select-solid">
+	<option>Option 1</option>
+	<option>Option 2</option>
+	<option>Option 3</option>
+</select>
+            </div>
             <div class="featured_list">
                 <FeaturedItem />
                 <FeaturedItem />

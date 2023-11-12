@@ -108,6 +108,8 @@ body {
     margin-bottom: 10px;
 }
 
+
+
 .featured_item .item_content {
     padding: 0 15px 15px 15px;
 }
@@ -129,6 +131,28 @@ body {
 
 .featured_item .item_content .item_title {
     font-size: 26px;
+}
+
+.filter  {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filter .input{
+    display: block;
+    width: 33%;
+    border: 1px solid #0000001a;
+    background: none;
+    color: var(--black);
+}
+
+.filter .select{
+    display: block;
+    width: 33%;
+    border: 1px solid #0000001a;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 @media screen and (max-width: 984px) {

@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Core\Categories\Category;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class CategorySeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Category::factory()->count(3)->hasSpareParts(6)->create();
     }
 }

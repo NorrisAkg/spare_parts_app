@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\SpareParts;
+namespace App\Core\SpareParts\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,7 +25,7 @@ class AddSparePartRequest extends FormRequest {
             "brand"        => "required|string",
             "description"  => "required|string",
             "pictures"     => "required|array",
-            "pictures.*"   => "file|array",
+            "pictures.*"   => "required|image|mimes:jpg,png,jpeg,gif,svg|max:4000"
         ];
     }
 }

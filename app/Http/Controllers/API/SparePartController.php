@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Core\Categories\Category;
 use Exception;
 use Illuminate\Http\Request;
+use App\Core\Categories\Category;
 use Illuminate\Http\JsonResponse;
 use App\Core\SpareParts\SparePart;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\SparePartResource;
-use App\Core\SpareParts\AddSparePartRequest;
 use App\Http\Resources\SparePartPaginateResource;
+use App\Core\SpareParts\Requests\AddSparePartRequest;
 use App\Core\Pictures\Exceptions\MaxPicturesException;
 use App\Core\Pictures\Repositories\Interfaces\PictureRepositoryInterface;
 use App\Core\SpareParts\Repositories\Interfaces\SparePartRepositoryInterface;
